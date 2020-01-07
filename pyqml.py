@@ -27,6 +27,8 @@ def saveCredential(cre, title, url, email, username, password, notes):
     output_file.write(output_text)
     output_file.close()
 
+    root.showMessageDialog()
+
 if __name__ == '__main__':
 
     #Set up the application window
@@ -38,6 +40,7 @@ if __name__ == '__main__':
     qml_file = os.path.join(os.path.dirname(__file__),"view.qml")
     view.setSource(QUrl.fromLocalFile(os.path.abspath(qml_file)))
 
+    global root
     root = view.rootObject()
 
     root.close_clicked.connect(app.exit)

@@ -3,7 +3,6 @@ import QtQuick.Layouts 1.14
 import QtQuick.Controls 2.14
 import QtQuick.Dialogs 1.1
 
-
 Item {
     id: root
     readonly property int default_margin: 5
@@ -11,6 +10,10 @@ Item {
 
     signal close_clicked()
     signal save_clicked(string cre, string title, string url, string email, string username, string password, string notes)
+
+    function showMessageDialog() {
+        messageDialog.open()
+    }
 
     MessageDialog {
         id: messageDialog
@@ -352,7 +355,6 @@ Item {
                     console.log(qsTr("Username: %1").arg(usernameInput.text))
                     console.log(qsTr("Password: %1").arg(passwdInput.text))
                     save_clicked(credentialCombo.currentText, siteTitleInput.text, siteUrlInput.text, acctEmailInput.text, usernameInput.text, passwdInput.text, notesEdit.text)
-                    messageDialog.open()
                 }
             }
 
